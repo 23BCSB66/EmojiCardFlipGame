@@ -1,5 +1,7 @@
 🎮 EmojiCardFlipGame
+
 A fun and visually engaging Memory Card Matching Game built using Jetpack Compose.
+
 Test your memory skills by flipping cards and matching emoji pairs within a countdown timer!
 
 ✨ Features
