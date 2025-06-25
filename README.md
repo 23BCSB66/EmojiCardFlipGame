@@ -11,8 +11,7 @@ Test your memory skills by flipping cards and matching emoji pairs within a coun
 📊 Game Over dialog showing:
 1. Score
 2. High score (locally stored)
-3. 
-Options: Play Again or Exit
+3. Options: Play Again or Exit
 
 🎨 Gradient card visuals & responsive dark theme
 🧩 Real-time state updates and animations
