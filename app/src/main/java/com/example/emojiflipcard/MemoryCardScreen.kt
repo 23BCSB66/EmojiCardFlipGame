@@ -80,6 +80,10 @@ fun MemoryGameScreen() {
                     first.id, second.id -> {
                         if (first.emoji == second.emoji && first.id != second.id) {
                             score += 1
+                            if (score == 18) {
+                                isRunning = false
+                                showDialog = true
+                            }
                             it.copy(isMatched = true)
                         } else {
                             it.copy(isFaceUp = false)
@@ -134,7 +138,7 @@ fun MemoryGameScreen() {
                             .weight(1f)
                             .height(10.dp)
                             .clip(RoundedCornerShape(4.dp)),
-                        color = Color.Cyan,
+                        color = Color(0xFF3700FF),
                         trackColor = Color.DarkGray
                     )
                 }
@@ -188,11 +192,12 @@ fun MemoryGameScreen() {
                             isRunning = true
                             showDialog = false
                             gameStarted = true
+
                         },
                         colors = CardDefaults.cardColors(
                             contentColor = Color.White,
-                            containerColor = Color(0xFF1E88E5),
-                            disabledContainerColor = Color(0xFF1E88E5),
+                            containerColor = Color(0xFF421EE5),
+                            disabledContainerColor = Color(0xFF881EE5),
                             disabledContentColor = Color.White
                         ),
                         modifier = Modifier
@@ -205,7 +210,7 @@ fun MemoryGameScreen() {
                         Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
                             Text(
                                 "🎮 Start Game",
-                                fontSize = 22.sp,
+                                fontSize = 25.sp,
                                 color = Color.White
                             )
                         }
@@ -230,23 +235,30 @@ fun MemoryGameScreen() {
                         isRunning = true
                         showDialog = false
                     }) {
-                        Text("Play Again")
+                        Text("Play Again", color = Color.White)
                     }
                 },
                 dismissButton = {
                     TextButton(onClick = { context?.finish() }) {
-                        Text("Exit")
+                        Text("Exit", color = Color.White)
                     }
+
                 },
-                title = { Text("⏰ Time's Up!", color = Color.White) },
+                title = {
+                    Text(
+                        text = if (score == 18) "🎉 You Win!🎉" else "⏰ Time's Up!",
+                        color = Color.White
+                    )
+                },
                 text = {
                     Text(
                         "Your Score: $score\nHigh Score: $highScore",
                         color = Color.White
                     )
                 },
-                containerColor = Color(0xFF2C2C2C)
+                containerColor = Color(0xFF6828FF)
             )
         }
     }
 }
+

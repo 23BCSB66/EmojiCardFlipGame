@@ -33,7 +33,7 @@ fun MemoryCardView(card: MemoryCard, width: Dp, height: Dp, onClick: () -> Unit)
         colors = if (isFront) {
             listOf(Color(0xFF424242), Color(0xFF212121))
         } else {
-            listOf(Color(0xFF68049E), Color(0xD57C1AA1))
+            listOf(Color(0xFF1200FF), Color(0xD500AEFF))
         }
     )
 
@@ -48,7 +48,7 @@ fun MemoryCardView(card: MemoryCard, width: Dp, height: Dp, onClick: () -> Unit)
         if (isFront) {
             Text(text = card.emoji, fontSize = 26.sp, color = Color.White)
         } else {
-            Text("?", fontSize = 20.sp, color = Color.White.copy(alpha = 0.5f))
+            Text("?", fontSize = 50.sp, color = Color.Black.copy(alpha = 1.5f))
         }
     }
 }
